@@ -22,9 +22,9 @@ libXp_la_SOURCES =			\
 
 libXp_la_LIBADD = $(XPRINT_LIBS)
 
-AM_CFLAGS = $(XPRINT_CFLAGS) $(MALLOC_ZERO_CFLAGS)
+AM_CFLAGS = $(CWARNFLAGS) $(XPRINT_CFLAGS) $(MALLOC_ZERO_CFLAGS)
 
-INCLUDES = -I$(top_srcdir)/include/X11/extensions
+AM_CPPFLAGS = -I$(top_srcdir)/include/X11/extensions
 
 #
 # Library version number. This must match old versions on

@@ -1,15 +1,14 @@
-/* $Xorg: XpJob.c,v 1.4 2000/08/17 19:46:07 cpqbld Exp $ */
 /******************************************************************************
  ******************************************************************************
  **
  ** (c) Copyright 1996 Hewlett-Packard Company
  ** (c) Copyright 1996 International Business Machines Corp.
- ** (c) Copyright 1996 Sun Microsystems, Inc.
+ ** (c) Copyright 1996, Oracle and/or its affiliates. All rights reserved.
  ** (c) Copyright 1996 Novell, Inc.
  ** (c) Copyright 1996 Digital Equipment Corp.
  ** (c) Copyright 1996 Fujitsu Limited
  ** (c) Copyright 1996 Hitachi, Ltd.
- ** 
+ **
  ** Permission is hereby granted, free of charge, to any person obtaining a copy
  ** of this software and associated documentation files (the "Software"), to deal
  ** in the Software without restriction, including without limitation the rights
@@ -34,7 +33,6 @@
  **
  ******************************************************************************
  *****************************************************************************/
-/* $XFree86: xc/lib/Xp/XpJob.c,v 1.5 2002/04/10 16:20:07 tsi Exp $ */
 
 #if defined(sun) && defined(i386) && defined(SVR4) && !defined(__EXTENSIONS__)
 #define __EXTENSIONS__
@@ -48,6 +46,9 @@
 #include <X11/Xos.h>
 #include "XpExtUtil.h"
 #include <limits.h>
+#ifdef XTHREADS
+#include <X11/Xthreads.h>
+#endif
 #ifndef WIN32
 #define X_INCLUDE_PWD_H
 #define XOS_USE_XLIB_LOCKING
@@ -70,7 +71,7 @@ static Bool _XpDiscardJob(Display *dpy, XEvent *event, XPointer arg)
 
     if (disrec->context != ((XPPrintEvent *) event)->context)
 	return False;
-    
+
     if ((((XPPrintEvent *) event)->detail == XPEndJobNotify) ||
 	(((XPPrintEvent *) event)->detail == XPEndDocNotify) ||
 	(((XPPrintEvent *) event)->detail == XPEndPageNotify))  {

@@ -1,15 +1,14 @@
-/* $Xorg: XpPage.c,v 1.4 2001/03/06 13:59:02 pookie Exp $ */
 /******************************************************************************
  ******************************************************************************
  **
  ** (c) Copyright 1996 Hewlett-Packard Company
  ** (c) Copyright 1996 International Business Machines Corp.
- ** (c) Copyright 1996 Sun Microsystems, Inc.
+ ** (c) Copyright 1996, Oracle and/or its affiliates. All rights reserved.
  ** (c) Copyright 1996 Novell, Inc.
  ** (c) Copyright 1996 Digital Equipment Corp.
  ** (c) Copyright 1996 Fujitsu Limited
  ** (c) Copyright 1996 Hitachi, Ltd.
- ** 
+ **
  ** Permission is hereby granted, free of charge, to any person obtaining a copy
  ** of this software and associated documentation files (the "Software"), to deal
  ** in the Software without restriction, including without limitation the rights
@@ -34,7 +33,6 @@
  **
  ******************************************************************************
  *****************************************************************************/
-/* $XFree86: xc/lib/Xp/XpPage.c,v 1.4 2001/12/19 21:28:44 dawes Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

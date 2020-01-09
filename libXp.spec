@@ -11,12 +11,11 @@
 
 Summary: X.Org X11 libXp runtime library
 Name: libXp
-Version: 1.0.0
-Release: 15.1%{?dist}
+Version: 1.0.2
+Release: 2.1%{?dist}
 License: MIT
 Group: System Environment/Libraries
 URL: http://www.x.org
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Source0: ftp://ftp.x.org/pub/individual/lib/%{name}-%{version}.tar.bz2
 
@@ -55,7 +54,7 @@ X.Org X11 libXp development package
 CPPFLAGS="$CPPFLAGS -I$RPM_BUILD_ROOT%{_includedir}"
 export CPPFLAGS
 
-autoreconf -v --install
+autoreconf -f -v --install
 
 %configure --disable-static
 make %{?_smp_mflags}
@@ -88,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc AUTHORS COPYING INSTALL ChangeLog
+%doc AUTHORS COPYING ChangeLog
 %{_libdir}/libXp.so.6
 %{_libdir}/libXp.so.6.2.0
 
@@ -108,8 +107,30 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
-* Mon Nov 30 2009 Dennis Gregorovic <dgregor@redhat.com> - 1.0.0-15.1
-- Rebuilt for RHEL 6
+* Wed Feb 12 2014 Adam Jackson <ajax@redhat.com> 1.0.2-2.1
+- Mass rebuild
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.0.2-2
+- Mass rebuild 2013-12-27
+
+* Mon Jul 01 2013 Peter Hutterer <peter.hutterer@redhat.com> 1.0.2-1
+- libXp 1.0.2. Drags in a bunch of general cleanup, code changes are quite
+  limited and CVE-2013-2062 (#960362)
+
+* Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.0-19
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
+* Thu Jul 19 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.0-18
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
+
+* Fri Jan 13 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.0-17
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
+* Mon Feb 07 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.0-16
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
+
+* Wed Jan 05 2011 Adam Jackson <ajax@redhat.com>
+- Remove BuildRoot.
 
 * Fri Jul 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.0-15
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
