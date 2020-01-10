@@ -12,7 +12,7 @@
 Summary: X.Org X11 libXp runtime library
 Name: libXp
 Version: 1.0.2
-Release: 1%{?dist}
+Release: 2.1%{?dist}
 License: MIT
 Group: System Environment/Libraries
 URL: http://www.x.org
@@ -107,6 +107,12 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Feb 12 2014 Adam Jackson <ajax@redhat.com> 1.0.2-2.1
+- Mass rebuild
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.0.2-2
+- Mass rebuild 2013-12-27
+
 * Mon Jul 01 2013 Peter Hutterer <peter.hutterer@redhat.com> 1.0.2-1
 - libXp 1.0.2. Drags in a bunch of general cleanup, code changes are quite
   limited and CVE-2013-2062 (#960362)
